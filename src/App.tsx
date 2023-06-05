@@ -1,8 +1,15 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: 'register',
+    element: <h1>Register Page</h1>
+  }
+]);
+
 const App = () => {
   return (
-    <div>
-      <h1>REGAPP</h1>
-    </div>
+    <RouterProvider router={router} />
   )
 }
 

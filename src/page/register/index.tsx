@@ -12,22 +12,31 @@ const Register = () => {
     state: '',
     country: '',
     occupation: '',
-  })
+  });
 
-  const handleChange = () => {
-    console.log('Change');
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const target = e.target as HTMLInputElement;
+    setValues((values) => ({
+      ...values,
+      [target.name]: target.value
+    }));
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(values);
   }
 
   return ( 
     <>
       <div className="register">
         <h1>Register Form</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
         <div className="register__container">
           <div className="container-a">
             <div className="input-box">
               <CustomInput
-                name={values.userName}
+                name='userName'
                 placeholder='User Name'
                 type='text'
                 value={values.userName}
@@ -36,7 +45,7 @@ const Register = () => {
             </div>
             <div className="input-box">
               <CustomInput
-                name={values.firstName}
+                name='firstName'
                 placeholder='First Name'
                 type='text'
                 value={values.firstName}
@@ -45,7 +54,7 @@ const Register = () => {
             </div>
             <div className="input-box">
               <CustomInput
-                name={values.lastName}
+                name='lastName'
                 placeholder='Last Name'
                 type='text'
                 value={values.lastName}
@@ -54,7 +63,7 @@ const Register = () => {
             </div>
             <div className="input-box">
               <CustomInput
-                name={values.email}
+                name='email'
                 placeholder='Enter your email address'
                 type='email'
                 value={values.email}
@@ -65,7 +74,7 @@ const Register = () => {
           <div className="container-b">
           <div className="input-box">
             <CustomInput
-              name={values.city}
+              name='city'
               placeholder='Name of City'
               type='text'
               value={values.city}
@@ -74,7 +83,7 @@ const Register = () => {
           </div>
           <div className="input-box">
             <CustomInput
-              name={values.state}
+              name='state'
               placeholder='Name of State'
               type='text'
               value={values.state}
@@ -83,7 +92,7 @@ const Register = () => {
           </div>
           <div className="input-box">
             <CustomInput
-              name={values.country}
+              name='country'
               placeholder='Name of Country'
               type='text'
               value={values.country}
@@ -92,7 +101,7 @@ const Register = () => {
           </div>
           <div className="input-box">
             <CustomInput
-              name={values.occupation}
+              name='occupation'
               placeholder='Name of Occupation'
               type='text'
               value={values.occupation}

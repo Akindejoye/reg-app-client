@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Register from './page/register';
 
 const router = createBrowserRouter([
   {
     path: 'register',
-    element: <h1>Register Page</h1>
+    element: <Register />
   }
 ]);
 

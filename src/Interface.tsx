@@ -12,7 +12,7 @@ export type FormInterface = {
   errorMessage?: string,
 }
 
-type UserArray = {
+export type UserArray = {
   _id: string,
 userName: string,
 firstName: string,

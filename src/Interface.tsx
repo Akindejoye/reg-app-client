@@ -10,3 +10,32 @@ export type FormInterface = {
   pattern?: string,
   errorMessage?: string,
 }
+
+type UserArray = {
+  _id: string,
+userName: string,
+firstName: string,
+lastName: string,
+email: string,
+occupation: string,
+city: string,
+state: string,
+country: string,
+createdAt: string,
+updatedAt: string,
+}
+
+export type UserResponseInterface = {
+  users: UserArray[],
+}
+
+export type UserInputInterface = {
+  userName: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  occupation: string,
+  city: string,
+  state: string,
+  country: string,
+}

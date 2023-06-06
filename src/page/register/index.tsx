@@ -1,9 +1,14 @@
 import { useState } from 'react';
+import { useQuery, useMutation } from 'react-query';
+import { UserInputInterface } from '../../Interface';
+import { useCreateNewUser } from '../../customHooks/useUsers';
 import CustomInput from '../../components/customInput';
 import './style.css';
 
+
+
 const Register = () => {
-  const [values, setValues] = useState({
+  const [values, setValues] = useState<UserInputInterface>({
     userName: '',
     firstName: '',
     lastName: '',
@@ -13,6 +18,18 @@ const Register = () => {
     country: '',
     occupation: '',
   });
+  
+  const handleSuccess = (data: any) => {
+    console.log('User created successfully:', data);
+    alert('User created successfully');
+  };
+
+  const handleError = (error: any) => {
+    console.error('Error creating user:', error);
+    alert('Error creating user:');
+  };
+
+  const { mutate: addUser, isLoading } = useCreateNewUser(handleError, handleSuccess);
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
@@ -24,8 +41,21 @@ const Register = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(values);
-  }
+    addUser(values, {
+      onSuccess: () => {
+        setValues({
+          userName: '',
+          firstName: '',
+          lastName: '',
+          email: '',
+          city: '',
+          state: '',
+          country: '',
+          occupation: '',
+        });
+      },
+    });
+  };
 
   return ( 
     <>
@@ -111,7 +141,13 @@ const Register = () => {
           </div>
         </div>
           <div className="buton-box">
-            <button className='register-button'>Submit</button>
+            <button
+              type='submit' 
+              className='register-button'
+              disabled={isLoading}
+            >
+              {isLoading? 'Submitting...' : 'Submit'}
+            </button>
           </div>
         </form>
       </div>

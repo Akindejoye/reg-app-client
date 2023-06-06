@@ -7,6 +7,7 @@ export type FormInterface = {
   name: string,
   value: string,
   onChange: (event: ChangeEvent<HTMLInputElement>) => void,
+  required: boolean,
   pattern?: string,
   errorMessage?: string,
 }

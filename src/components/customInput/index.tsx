@@ -21,6 +21,7 @@ const CustomInput = (props: FormInterface) => {
           placeholder={props.placeholder}
           onChange={props.onChange}
           pattern={props.pattern}
+          required={props.required}
           onBlur={handleFocus}
           onFocus={() => props.name === "confirmpassword" && setFocused(true)}
           // focused={focused.toString()}

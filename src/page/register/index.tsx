@@ -71,6 +71,7 @@ const Register = () => {
                 type='text'
                 value={values.userName}
                 onChange={handleChange}
+                required={true}
               />
             </div>
             <div className="input-box">
@@ -80,6 +81,7 @@ const Register = () => {
                 type='text'
                 value={values.firstName}
                 onChange={handleChange}
+                required={true}
               />
             </div>
             <div className="input-box">
@@ -89,6 +91,7 @@ const Register = () => {
                 type='text'
                 value={values.lastName}
                 onChange={handleChange}
+                required={true}
               />
             </div>
             <div className="input-box">
@@ -98,6 +101,7 @@ const Register = () => {
                 type='email'
                 value={values.email}
                 onChange={handleChange}
+                required={true}
               />
             </div>
           </div>
@@ -109,6 +113,7 @@ const Register = () => {
               type='text'
               value={values.city}
               onChange={handleChange}
+              required={false}
             />
           </div>
           <div className="input-box">
@@ -118,6 +123,7 @@ const Register = () => {
               type='text'
               value={values.state}
               onChange={handleChange}
+              required={false}
             />
           </div>
           <div className="input-box">
@@ -127,6 +133,7 @@ const Register = () => {
               type='text'
               value={values.country}
               onChange={handleChange}
+              required={false}
             />
           </div>
           <div className="input-box">
@@ -136,6 +143,7 @@ const Register = () => {
               type='text'
               value={values.occupation}
               onChange={handleChange}
+              required={false}
             />
           </div>
           </div>
